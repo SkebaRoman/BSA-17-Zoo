@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using ZooClassLibrary;
 using ZooClassLibrary.Pattern;
 
@@ -6,9 +7,11 @@ namespace UIClassLibrary
 {
     public class UserInterface
     {
+        private Zoo zoo;
         public void OpenZoo(Zoo zoo)
         {
             string textLine = string.Empty;
+            this.zoo = zoo;
 
             while (true)
             {

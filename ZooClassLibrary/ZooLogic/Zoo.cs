@@ -10,11 +10,21 @@ namespace ZooClassLibrary
         private List<Animal> animals = new List<Animal>();
         private Random random = new Random();
 
+        public Zoo()
+        {
+            MyTimer.MyTimer timer = new MyTimer.MyTimer(this);
+            timer.TimerStart();
+        }
+
         private Animal GetAnimalByName(string name)
         {
             var animal = animals.Where(a=>a.Name == name).FirstOrDefault();
 
             return animal != null ? animal : null;
+        }
+        public int GetAnimalLength()
+        {
+            return animals.Count;
         }
         public void AddAnimal(string name, string type)
         {
@@ -109,15 +119,18 @@ namespace ZooClassLibrary
         {
             return random.Next(0, animals.Count);
         }
-        private void TimeForChangeState()
+        public void TimeForChangeState()
         {
-            if (!AreAllDead())
+            if (animals.Count >= 2)
             {
-                animals[GetRandomAnimalIndex()].ChangeState();
-            }
-            else
-            {
-                //Exit
+                if (!AreAllDead())
+                {
+                    animals[GetRandomAnimalIndex()].ChangeState();
+                }
+                else
+                {
+                    Environment.Exit(0);
+                }
             }
         }
         private bool AreAllDead()
