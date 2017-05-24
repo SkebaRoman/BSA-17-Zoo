@@ -39,6 +39,7 @@ namespace ZooClassLibrary
                 }
                 else
                 {
+                    CurrentHealth -= 1;
                     CurrentState = State.Dead;
                 }
             }
