@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZooConsoleApplication", "Zo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZooClassLibrary", "ZooClassLibrary\ZooClassLibrary.csproj", "{4DCC2ED0-1D37-4594-92D3-88C351AD563B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIClassLibrary", "UIClassLibrary\UIClassLibrary.csproj", "{726CE460-750C-4315-97C8-CE79A107553B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4DCC2ED0-1D37-4594-92D3-88C351AD563B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DCC2ED0-1D37-4594-92D3-88C351AD563B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DCC2ED0-1D37-4594-92D3-88C351AD563B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{726CE460-750C-4315-97C8-CE79A107553B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{726CE460-750C-4315-97C8-CE79A107553B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{726CE460-750C-4315-97C8-CE79A107553B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{726CE460-750C-4315-97C8-CE79A107553B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

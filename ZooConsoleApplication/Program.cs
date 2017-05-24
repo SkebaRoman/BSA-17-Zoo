@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ZooClassLibrary;
+using UIClassLibrary;
 
 namespace ZooConsoleApplication
 {
@@ -10,6 +7,8 @@ namespace ZooConsoleApplication
     {
         static void Main(string[] args)
         {
+            UserInterface userInterface = new UserInterface();
+            userInterface.OpenZoo(new Zoo());
         }
     }
 }
