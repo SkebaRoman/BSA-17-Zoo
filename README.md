@@ -1,5 +1,5 @@
 # BSA-17-Zoo
 
-![alt text](http://imgur.com/4V56C6O)
+![alt text](http://i.imgur.com/q7PvYE2.png)
 
 ## For information, how application works, enter help
