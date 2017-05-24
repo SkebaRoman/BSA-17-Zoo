@@ -49,6 +49,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UIClassLibrary\UIClassLibrary.csproj">
+      <Project>{726ce460-750c-4315-97c8-ce79a107553b}</Project>
+      <Name>UIClassLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZooClassLibrary\ZooClassLibrary.csproj">
+      <Project>{4dcc2ed0-1d37-4594-92d3-88c351ad563b}</Project>
+      <Name>ZooClassLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
