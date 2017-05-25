@@ -1,24 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Timers;
 using ZooClassLibrary.UserException;
 
 namespace ZooClassLibrary
 {
     public class Zoo
     {
+        public delegate void ExitHandeler();
+        public event ExitHandeler Exit; 
+
         private List<Animal> animals = new List<Animal>();
         private Random random = new Random();
+        private Timer timer;
 
         public Zoo()
         {
-            MyTimer.MyTimer timer = new MyTimer.MyTimer(this);
-            timer.TimerStart();
+            timer = new Timer(5000);
+            timer.Elapsed += (sender, args) => TimerEvent(sender, args);
+            timer.Start();
+        }
+
+        private void TimerEvent(object sender, ElapsedEventArgs args)
+        {
+            TimeForChangeState();
         }
 
         private Animal GetAnimalByName(string name)
         {
-            var animal = animals.Where(a=>a.Name == name).FirstOrDefault();
+            var animal = animals.Where(a => a.Name == name).FirstOrDefault();
 
             return animal != null ? animal : null;
         }
@@ -37,6 +49,7 @@ namespace ZooClassLibrary
                 if (returnedAnimal != null)
                 {
                     animals.Add(returnedAnimal);
+                    Console.WriteLine("Animal was added");
                 }
                 else
                 {
@@ -57,6 +70,7 @@ namespace ZooClassLibrary
                 if (animal.CurrentState == State.Dead)
                 {
                     animals.Remove(animal);
+                    Console.WriteLine("Animal was removed");
                 }
                 else
                 {
@@ -74,7 +88,15 @@ namespace ZooClassLibrary
 
             if (animal != null)
             {
-                animal.Eat();
+                if (animal.CurrentState == State.Dead)
+                {
+                    throw new CanNotFeedDeadAnimalException();
+                }
+                else
+                {
+                    animal.Eat();
+                    Console.WriteLine("Animal was fed");
+                }
             }
             else
             {
@@ -87,7 +109,15 @@ namespace ZooClassLibrary
 
             if (animal != null)
             {
-                animal.Cure();
+                if (animal.CurrentState == State.Dead)
+                {
+                    throw new CanNotCureDeadAnimalException();
+                }
+                else
+                {
+                    animal.Cure();
+                    Console.WriteLine("Animal was cured");
+                }
             }
             else
             {
@@ -97,9 +127,9 @@ namespace ZooClassLibrary
 
         public void ShowAllAnimals()
         {
-            foreach (var animal in animals)
+            foreach (var item in animals)
             {
-                Console.WriteLine(animal.ToString());
+                Console.WriteLine(item.ToString());
             }
         }
         public string AboutAnimal(string name)
@@ -129,7 +159,10 @@ namespace ZooClassLibrary
                 }
                 else
                 {
-                    Environment.Exit(0);
+                    if (Exit != null)
+                    {
+                        Exit();
+                    }
                 }
             }
         }
