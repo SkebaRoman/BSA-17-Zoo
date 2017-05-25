@@ -1,14 +1,7 @@
-﻿namespace ZooClassLibrary.Pattern
+﻿namespace ZooClassLibrary.Pattern.Command
 {
-    public abstract class Command
+    public abstract class UserCommand
     {
-        protected Receiver receiver;
-
-        public Command(Receiver receiver)
-        {
-            this.receiver = receiver;
-        }
-
         public abstract void Execute();
     }
 }

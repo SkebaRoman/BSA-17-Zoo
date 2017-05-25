@@ -1,10 +1,10 @@
-﻿namespace ZooClassLibrary.Pattern
+﻿namespace ZooClassLibrary.Pattern.Command
 {
     public class Invoker
     {
-        private Command command;
+        private UserCommand command;
 
-        public void SetCommand(Command command)
+        public void SetCommand(UserCommand command)
         {
             this.command = command;
         }
