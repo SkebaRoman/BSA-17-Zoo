@@ -23,6 +23,11 @@ namespace ZooClassLibrary
             timer.Start();
         }
 
+        public IReadOnlyList<Animal> GetAnimals()
+        {
+            return animals;
+        }
+
         private void TimerEvent(object sender, ElapsedEventArgs args)
         {
             TimeForChangeState();
@@ -159,10 +164,7 @@ namespace ZooClassLibrary
                 }
                 else
                 {
-                    if (Exit != null)
-                    {
-                        Exit();
-                    }
+                    Exit?.Invoke();
                 }
             }
         }
