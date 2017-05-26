@@ -23,5 +23,18 @@ namespace UIClassLibrary
             Console.WriteLine("8 - To close application, write exit");
             Console.WriteLine("\nYou can enter commands in lower or upper register it's doesnt't matter.");
         }
+        public static void ShowLinqHelp()
+        {
+            Console.WriteLine("1 - Show all animals group by type");
+            Console.WriteLine("2 - Show animals by state, enter by user");
+            Console.WriteLine("3 - Show all sick tigers");
+            Console.WriteLine("4 - Show elephant by name");
+            Console.WriteLine("5 - Show names all hungry animals");
+            Console.WriteLine("6 - Show most heath animal every type");
+            Console.WriteLine("7 - Show count all dead animals group by type");
+            Console.WriteLine("8 - Show wolfs and bears whose health is >= 3");
+            Console.WriteLine("9 - Show min and max health");
+            Console.WriteLine("10 - Show average animals heath in zoo");
+        }
     }
 }
